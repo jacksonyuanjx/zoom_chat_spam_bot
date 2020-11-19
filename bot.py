@@ -12,7 +12,8 @@ else:
 
 # print("===", win)
 win.activate()
-if "zoom_chat_spam_bot" in pyautogui.getActiveWindow().title:
+active_win = pyautogui.getActiveWindow()
+if  active_win and "zoom_chat_spam_bot" in active_win.title:
     sys.exit("Zoom application window is not open")
 
 pyautogui.hotkey("alt", "h")
