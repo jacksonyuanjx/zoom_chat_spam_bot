@@ -1,19 +1,26 @@
 import pyautogui
+import sys
 
-print(pyautogui.getAllWindows())
 win = pyautogui.getWindowsWithTitle("Zoom Meeting")
 if (not len(win)):
     win = pyautogui.getWindowsWithTitle("Zoom")[0]
 else:
     win = win[0]
-print("===", win)
+# print("===", win)
 win.activate()
+if "zoom_chat_spam_bot" in pyautogui.getActiveWindow().title:
+    sys.exit("Zoom application window is not open")
+
 
 pyautogui.hotkey("alt", "h")
 
-for i in range(0, 2):
-    pyautogui.write("https://sites.google.com/view/ubc-cpsc310-20w1-intro-to-se/calendar")
-pyautogui.press("enter")
+# while True:
+for i in range(0, 10):
+    pyautogui.write("F")
+    pyautogui.press("enter")
+
+sys.exit("Spam bot operation complete")
+
 
 # Logs current position of cursor
 # try:
